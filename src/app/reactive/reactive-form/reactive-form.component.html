@@ -1,0 +1,50 @@
+<div class="container-fluid col-sm-8">
+  <form [formGroup]="registrationForm" >
+      {{ registrationForm.value | json}}
+
+    <div class="form-group">
+      <label>Username</label>
+      <input [class.is-invalid]="registrationForm.get('username').invalid && registrationForm.get('username').touched" formControlName="username" type="text" class="form-control">
+      <!-- <small class="text-danger" [class.d-none]="registrationForm.get('username').valid || registrationForm.get('username').untouched">UserName Required</small> -->
+      <div *ngIf="registrationForm.get('username').invalid && registrationForm.get('username').touched">
+          <small class="text-danger" *ngIf="registrationForm.get('username').errors ?.required">Username Required</small>
+          <small class="text-danger" *ngIf="registrationForm.get('username').errors ?.minlength">Username must be 10 characters</small>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Password</label>
+      <input [class.is-invalid]="registrationForm.get('password').invalid && registrationForm.get('password').touched" formControlName="password"  type="password" class="form-control">
+      <small class="text-danger" [class.d-none]="registrationForm.get('password').valid || registrationForm.get('password').untouched">Please Enter Password</small>
+    </div>
+
+    <div class="form-group">
+      <label>Confim Password</label>
+      <input  [class.is-invalid]="registrationForm.get('conFirmPassword').invalid && registrationForm.get('conFirmPassword').touched"  formControlName="conFirmPassword"  type="password" class="form-control">
+      <small class="text-danger" [class.d-none]="registrationForm.get('conFirmPassword').valid || registrationForm.get('conFirmPassword').untouched">Please Enter Confirm Password</small>
+    </div>    
+    <div formGroupName="address">
+        <div class="form-group">
+          <label>City</label>
+          <input [class.is-invalid]="registrationForm.controls.address.controls.city.invalid && registrationForm.controls.address.controls.city.touched " formControlName="city"  type="text" class="form-control">
+          <small class="text-danger" [class.d-none]="registrationForm.controls.address.controls.city.valid || registrationForm.controls.address.controls.city.untouched">Please Enter Vali city</small>
+        </div>
+
+        <div class="form-group">
+          <label>State</label>
+          <input [class.is-invalid]="registrationForm.controls.address.controls.state.invalid && registrationForm.controls.address.controls.state.touched" formControlName="state"  type="text" class="form-control">
+          <small class="text-danger" [class.d-none]="registrationForm.controls.address.controls.state.valid || registrationForm.controls.address.controls.state.untouched">please Enter valid State</small>
+        </div>
+
+        <div class="form-group">
+          <label>Postal Code</label>
+          <input [class.is-invalid]="registrationForm.controls.address.controls.postalcode.invalid && registrationForm.controls.address.controls.postalcode.touched" formControlName="postalcode"  type="text" class="form-control">
+          <small class="text-danger" [class.d-none]="registrationForm.controls.address.controls.postalcode.valid || registrationForm.controls.address.controls.postalcode.untouched">Please Enter Postal Code</small>
+        </div>
+    </div>
+
+    <button class="btn btn-primary mr-4" type="submit">Register</button>
+    <button (click)="loadAPIData()" class="btn btn-secondary" type="button">Load API Data</button>
+  </form>
+  
+</div>

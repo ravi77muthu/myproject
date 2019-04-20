@@ -1,0 +1,12 @@
+.topnav{
+    background-color: #000000;
+    color: #fff;
+    
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+}
+li{
+    padding: 30px;
+}

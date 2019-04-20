@@ -1,0 +1,21 @@
+
+<div class="main-div">
+    <h1>Students List:</h1>
+ <h2> {{errorMsg}} </h2>
+<ul class="students">
+  
+    <li *ngFor="let s of students">
+      <a routerLink="detail/{{s.id}}">
+        <span class="badge">{{s.id}}</span> {{s.name}}
+      </a>
+    </li>
+  </ul>
+</div>
+<div class="text-center"> 
+  <label>Student name:
+    <input #studentName />
+  </label>
+  <button (click)="add(studentName.value); studentName.value=''">
+    add
+  </button>
+</div>

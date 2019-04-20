@@ -1,0 +1,18 @@
+
+<h2 style="text-align: center">Student Details Page</h2>
+<h2>{{errorMsg}}</h2>
+<div class="main-div" *ngIf="obj">
+  <h1>{{obj.name | uppercase}} Details</h1>
+  
+  <div><span>ID: </span>{{obj.id}}</div>
+  <div>
+    <label>Name:</label><br/>
+      <input [(ngModel)]="obj.name" placeholder="name"/>
+    
+  </div><br/><br/>
+  <button (click)="goBack()">go back</button>
+</div>
+
+
+
+  
